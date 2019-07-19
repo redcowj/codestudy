@@ -1,0 +1,15 @@
+//클릭시 alert창 띄우는 script
+<body>
+<onclick="yo()">confirm
+<script type="text/javascript">
+	function yo(){
+		var a = confirm("안녕하니?");
+		if(a){
+			alert("오오 다행");
+		}else{
+			alert("뭐야");
+		}
+	}
+</script>
+</body>
+// 
