@@ -1,0 +1,29 @@
+https://anster.tistory.com/128
+
+servlet: 톰캣 위에서 동작하는 java프로그램.
+톰캣과 같은 WAS가 java파일을 컴파일해서 Class로 만들고 메모리에 올려 Servlet객체를 만들게 되고
+Servlet 객체는 doGet, doPost를 통해 요청에 응답한다.
+초기화된 서블릿이 클라이언트의 요청이 있을 때 마다 thread를 생성해서 병렬적으로 service를 수행한다.
+서블릿 객체는 여러개 생성되지 않습니다.
+
+=WAS를 통해 컴파일 된 후 메모리에 적재되어 클라이언트의 HTTP Get, Post등의 요청을 처리하는 자바프로그램.
+코드내부에 html을 넣기가 불편하다..
+
+그래서 JSP가 나온다.
+HTML 내부에 JAVA코드를 삽입하는 형식의 JSP.
+HTML코드를 작성하기 쉽지만 로직과 디자인이 한 파일내에 섞여 있어 유지보수가 어렵다.  클래스단위로 분해하기도 어렵다.
+
+사실 JSP도 내부적으로는 Tomcat이 Servlet으로 바꾸어서 돌린다.
+결국엔 java클래스 파일로 변환되어 메모리상에 적재된다. 개발자들이 HTML부분을 편하게 코딩하게 만든것!
+
+JSP를 이용해 코딩하다가 발전시킨것이 
+Model1.
+사용자로부터 요청을 JSP가 받아 Java Bean(DTO, DAO)를 호출해 처리합니다. 이런방식을 Model1이라고 함.
+프레젠테이션로직과 비즈니스 로직이 혼재하고 JSP코드가 복잡해져 유지보수가 어렵다는 단점 있음
+
+Model2
+View는 JSP로 Controller는 Servlet을 사용한 것이 Model2. 
+보여지는 부분은 HTML이 중심이 되는 JSP,
+다른 자바클래스에게 데이터를 넘겨주는 부분은 Java코드가 중심이 되는 Servlet이 담당한다.
+Model영역에서는 DTO, DAO를 통해 MySQL과 같은 data storage에 접근한다.
+
